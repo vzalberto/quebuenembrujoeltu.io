@@ -1,0 +1,48 @@
+<p> qué buen </p>
+
+<p> embrujo </p>
+
+<p> el tu.io </p>
+
+<style>
+
+	@font-face {
+		font-family : alexandria;
+		src : url('./alexandria.ttf');
+	}
+
+	body {	
+		display: flex;
+		background-color: black;
+		flex-direction: column;
+		justify-content: center;
+		cursor: grab;
+	
+	}
+
+	p {
+		font-family: alexandria;
+		font-size: 4em;
+		font-weight: 800;
+		color: cyan;
+		text-align: center;
+	}
+
+
+</style>
+
+<script>
+
+	rand = () => Math.random() * 256
+
+	performance = () => {
+		[...document.getElementsByTagName('p')]
+		.map(p=>{
+			p.style.color = `rgb(${Math.round(rand())}, ${Math.round(rand())}, ${Math.round(rand())})`
+		})
+	}
+
+	setInterval(performance, 100)
+
+	
+</script>
