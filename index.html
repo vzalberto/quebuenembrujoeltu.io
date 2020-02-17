@@ -1,9 +1,33 @@
-<p> qué buen </p>
+<div>
+	<p> qué buen </p>
 
-<p> embrujo </p>
+	<p> embrujo </p>
 
-<p> el tu.io </p>
+	<p> el tu.io </p>
+</div>
+<section>
+	<box></box>
+<pre>
+embrujo = () => {
 
+  rand = () => Math.random() * 256
+
+  [ ...document.getElementsByTagName('p') ]
+  .map( p => {
+
+    rojo  = Math.round( rand() )
+    verde = Math.round( rand() )
+    azul  = Math.round( rand() )
+
+	p.style.color = 
+	`rgb( ${rojo}, ${verde}, ${azul} )`
+
+	}
+
+}
+</pre>
+	<box></box>
+</section>
 <style>
 
 	@font-face {
@@ -11,11 +35,16 @@
 		src : url('./alexandria.ttf');
 	}
 
+	@font-face {
+		font-family : inconsolata;
+		src : url('./Inconsolata-Regular.ttf');
+	}
+
 	body {	
 		display: flex;
 		background-color: black;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: space-around;
 		cursor: grab;
 	
 	}
@@ -28,6 +57,26 @@
 		text-align: center;
 	}
 
+	section {
+		background-color: black;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	box {
+		flex: 2 1 auto;
+		background-color: black;
+	}
+
+	pre {
+		flex: 1 2 auto;
+		font-family: inconsolata;
+		font-size: 2.5em;
+		color: white;
+		background-color: azul;
+	}
+
 
 </style>
 
@@ -38,7 +87,11 @@
 	performance = () => {
 		[...document.getElementsByTagName('p')]
 		.map(p=>{
-			p.style.color = `rgb(${Math.round(rand())}, ${Math.round(rand())}, ${Math.round(rand())})`
+				rojo  = Math.round(rand())
+				verde = Math.round(rand())
+				azul  = Math.round(rand())	
+
+				p.style.color = `rgb( ${rojo}, ${verde}, ${azul} )`
 		})
 	}
 
