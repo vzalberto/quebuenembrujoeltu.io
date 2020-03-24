@@ -1,9 +1,65 @@
+<script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/zfont/dist/zfont.min.js"></script>
+<canvas class="zdog-canvas" width="1200" height="800"></canvas>
+<script>
+    Zfont.init(Zdog);
+
+    let isSpinning = true;
+
+    let illo = new Zdog.Illustration({
+        element: '.zdog-canvas',
+        dragRotate: true,
+        zoom: 3,
+        onDragStart: function() {
+            isSpinning = false;
+        },
+        onDragEnd: function() {
+            isSpinning = true;
+        },
+    });
+
+    let myFont = new Zdog.Font({
+        src: './boston.ttf'
+    });
+
+    let yourFont = new Zdog.Font({
+        src: './alexandria.ttf'
+    });
+
+    new Zdog.Text({
+        addTo: illo,
+        font: myFont,
+        value: 'en la del valle\ndurante cuarentena\nnos embrujamos',
+        fontSize: 32,
+        color: '#fff',
+        translate: {x: -135, y: 30}
+    });
+
+    new Zdog.Text({
+        addTo: illo,
+        font: yourFont,
+        value: 'en la del valle\ndurante cuarentena\nnos embrujamos',
+        fontSize: 20,
+        color: '#56a3db', //Duron Jacaranda Hex
+        translate: {x: -85, y: 30, z: 100}
+    });
+
+    function animate() {
+        // illo.rotate.x += isSpinning ? 0.03 : 0;
+        // illo.rotate.y += isSpinning ? 0.03 : 0;
+        // illo.rotate.z += isSpinning ? 0.03 : 0;
+        illo.updateRenderGraph();
+        requestAnimationFrame( animate );
+    }
+
+    animate();
+</script>
 <div>
 	<p> qué buen </p>
 
 	<p> embrujo </p>
 
-	<p> el tu.io </p>
+    <p> el tu.io </p>
 </div>
 <section>
 	<box></box>
@@ -75,7 +131,13 @@ embrujo = () => {
 		font-size: 2.5em;
 		color: white;
 		background-color: azul;
+        margin-top: 1em;
 	}
+
+    canvas {
+        height: 800px;
+        align-self: center;
+    }
 
 
 </style>
